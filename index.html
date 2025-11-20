@@ -114,27 +114,29 @@
     transform: scale(1.045) rotate(-1.5deg);
     box-shadow: 0 6px 28px rgba(251,191,36,0.19);
 }
-.project-btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 28px;
+.project-btn,
+.project-btn:link,
+.project-btn:visited,
+.project-btn:active {
     background: linear-gradient(90deg, #4f46e5 50%, #ffffff 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    color: #4f46e5; /* purple text */
+    color: #4f46e5 !important; /* purple text */
     font-weight: 600;
     border-radius: 6px;
     text-decoration: none;
     box-shadow: 0 2px 12px rgba(51,65,85,0.09);
-    transition: background-position 1s ease, color 1s ease, transform 0.16s, box-shadow 0.16s;
+    transition: background-position 1.5s ease, color 1.5s ease, transform 0.16s, box-shadow 0.16s;
     border: 2px solid #4f46e5;
 }
+
 .project-btn:hover {
-    background-position: left bottom;
-    color: #ffffff; /* white text */
+    background-position: left bottom !important;
+    color: #ffffff !important; /* white text */
     transform: translateY(-3px) scale(1.09);
     box-shadow: 0 12px 28px rgba(79,70,229,0.4);
 }
+
 
 
 ul {
@@ -280,6 +282,7 @@ ul {
     </div>
 </body>
 </html>
+
 
 
 
