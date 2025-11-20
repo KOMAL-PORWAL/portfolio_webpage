@@ -1,0 +1,43 @@
+// assets/js/main.js
+(async function(){
+  const username = 'KOMAL-PORWAL'; // <-- change this
+  const target = document.getElementById('projects-grid');
+
+  try {
+    // fetch public repos (unauthenticated; rate-limited)
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed`);
+    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+    const repos = await res.json();
+
+    // Optional: filter out forks if you prefer
+    const filtered = repos.filter(r => !r.fork).slice(0, 12);
+
+    // build cards
+    target.innerHTML = filtered.map(r => {
+      const desc = r.description ? r.description : 'No description provided.';
+      const lang = r.language ? r.language : '';
+      const homepage = r.homepage ? `<a class="visit" href="${r.homepage}" target="_blank">Demo</a>` : '';
+      return `
+        <div class="card">
+          <h3><a href="${r.html_url}" target="_blank">${r.name}</a></h3>
+          <p>${escapeHtml(desc)}</p>
+          <p class="muted">${lang} • ⭐ ${r.stargazers_count} • Updated ${new Date(r.pushed_at).toLocaleDateString()}</p>
+          <p>${homepage}<a style="margin-left:10px" href="${r.html_url}" target="_blank">Code</a></p>
+        </div>
+      `;
+    }).join('');
+
+    if(filtered.length === 0) {
+      target.innerHTML = '<div class="card"><h3>No public repos found</h3><p>Make sure your repos are public and username is set in <code>assets/js/main.js</code>.</p></div>';
+    }
+  } catch (err) {
+    console.error(err);
+    target.innerHTML = `<div class="card"><h3>Error loading projects</h3><p>${err.message}</p></div>`;
+  }
+
+  // helper to avoid HTML injection
+  function escapeHtml(s){
+    if(!s) return '';
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+})();

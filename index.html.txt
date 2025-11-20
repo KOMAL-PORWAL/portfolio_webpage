@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Komal Porwal — Portfolio</title>
+  <meta name="description" content="Komal Porwal — Robotics, UAVs, FPGA, ML, ROS2" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Komal Porwal</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="resume.pdf" download>Resume</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container">
+      <div class="hero-left">
+        <h1>Hi — I’m Komal</h1>
+        <p class="lead">Robotics & embedded systems engineer. FPGA, ROS2, UAVs, ML, and control systems.</p>
+        <p class="cta">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn ghost" href="mailto:komal.porwal@colorado.edu">Contact me</a>
+        </p>
+      </div>
+      <div class="hero-right">
+        <img src="assets/images/profile.jpg" alt="Komal Porwal" class="profile"/>
+      </div>
+    </section>
+
+    <section id="about" class="container section">
+      <h2>About</h2>
+      <p>I build robotics systems and tools — from FPGA electronics to ROS2 navigation stacks and ML for perception. I enjoy taking prototypes to field-ready systems.</p>
+      <ul class="quick-info">
+        <li><strong>Location:</strong> Colorado, USA</li>
+        <li><strong>Education:</strong> (MS Aerospace Engineering (Autonomous Systems) / University of Colorado Boulder)</li>
+        <li><strong>Open to:</strong> Internships, research collaborations, robotics roles</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="container section">
+      <h2>Selected projects</h2>
+      <div id="projects-grid" class="grid">
+        <!-- Project cards will be inserted here by JS -->
+        <div class="card placeholder">
+          <h3>Loading projects…</h3>
+        </div>
+      </div>
+      <p class="muted">Projects are pulled from GitHub. Update repo descriptions and pinned repos to control what's shown.</p>
+    </section>
+
+    <section id="skills" class="container section">
+      <h2>Skills</h2>
+      <div class="chips">
+        <span>ROS2</span><span>C++</span><span>Python</span><span>MATLAB</span>
+        <span>FPGA</span><span>Embedded (STM32)</span><span>Computer Vision</span><span>ML</span>
+      </div>
+    </section>
+
+    <section id="contact" class="container section">
+      <h2>Contact</h2>
+      <p>If you'd like to connect: <strong><a href="mailto:your.email@example.com">your.email@example.com</a></strong></p>
+      <p>LinkedIn • GitHub • Twitter (put your links below)</p>
+      <div class="social">
+        <a href="https://github.com/KOMAL-PORWAL" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/komal-porwal-967138219/" target="_blank">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Komal Porwal — Built with ❤️ • <a href="https://github.com/KOMAL-PORWAL/KOMALPORWAL.github.io" target="_blank">Source</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // small dynamic bits
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // nav toggle
+    document.querySelector('.nav-toggle').addEventListener('click', () => {
+      document.querySelector('.nav').classList.toggle('open');
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
